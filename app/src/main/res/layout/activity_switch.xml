@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SwitchActivity">
+
+    <ImageView
+        android:id="@+id/plug1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="300dp"
+        android:src="@drawable/plug"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <com.suke.widget.SwitchButton
+        android:id="@+id/sb"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_margin="50dp"
+        android:tint="@color/colorAccept"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/plug1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.17"
+        app:sb_background="@color/gray"
+        app:sb_button_color="@color/white"
+        app:sb_checked_color="@color/green"
+        app:sb_checkline_color="@color/green"
+        app:sb_shadow_color="#A36F95"
+        app:sb_uncheck_color="@color/gray"
+        app:sb_uncheckcircle_color="@color/gray" />
+
+    <ImageView
+        android:id="@+id/plug2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="300dp"
+        android:src="@drawable/plug"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35" />
+
+    <com.suke.widget.SwitchButton
+        android:id="@+id/sb2"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_margin="50dp"
+        android:tint="@color/colorAccept"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/plug2"
+        app:layout_constraintVertical_bias="0.32"
+        app:sb_background="@color/gray"
+        app:sb_button_color="@color/white"
+        app:sb_checked_color="@color/green"
+        app:sb_checkline_color="@color/green"
+        app:sb_shadow_color="#A36F95"
+        app:sb_uncheck_color="@color/gray"
+        app:sb_uncheckcircle_color="@color/gray" />
+
+    <ImageView
+        android:id="@+id/plug3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="300dp"
+        android:src="@drawable/plug"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <com.suke.widget.SwitchButton
+        android:id="@+id/sb3"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_margin="50dp"
+        android:tint="@color/colorAccept"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/plug3"
+        app:layout_constraintVertical_bias="0.49"
+        app:sb_background="@color/gray"
+        app:sb_button_color="@color/white"
+        app:sb_checked_color="@color/green"
+        app:sb_checkline_color="@color/green"
+        app:sb_shadow_color="#A36F95"
+        app:sb_uncheck_color="@color/gray"
+        app:sb_uncheckcircle_color="@color/gray" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

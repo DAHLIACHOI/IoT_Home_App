@@ -8,24 +8,23 @@
 
     <EditText
         android:id="@+id/et_name"
-        android:layout_width="233dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginLeft="42dp"
-        android:layout_marginTop="224dp"
-        android:layout_marginEnd="150dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginRight="150dp"
         android:ems="10"
         android:hint="이름을 입력해주세요."
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
 
     <EditText
         android:id="@+id/et_id"
-        android:layout_width="233dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
         android:ems="10"
@@ -37,7 +36,7 @@
 
     <EditText
         android:id="@+id/et_pass"
-        android:layout_width="233dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
         android:ems="10"
@@ -49,7 +48,7 @@
 
     <EditText
         android:id="@+id/et_mail"
-        android:layout_width="233dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="48dp"
         android:ems="10"
@@ -66,7 +65,7 @@
         android:layout_height="62dp"
         android:layout_marginStart="153dp"
         android:layout_marginLeft="153dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="153dp"
         android:layout_marginRight="153dp"
         android:text="회원가입"
@@ -78,18 +77,16 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="35dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginLeft="42dp"
-        android:layout_marginTop="188dp"
-        android:layout_marginEnd="343dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:layout_marginRight="343dp"
         android:text="이름"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15" />
 
     <TextView
         android:id="@+id/textView2"
@@ -121,16 +118,13 @@
     <Button
         android:id="@+id/btn_check"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
         android:text="중복 확인"
         app:backgroundTint="#B6B6B6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/et_id"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/et_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>
