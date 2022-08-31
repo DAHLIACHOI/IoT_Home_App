@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VideoActivity">
+    tools:context=".view.ElecVideo.VideoMenu">
 
     <LinearLayout
-        android:id="@+id/heartProgramTopBar"
+        android:id="@+id/videoMenuTopBar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:orientation="horizontal"
@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:backgroundTint="@color/white"
             android:gravity="center"
-            android:onClick="goToBack"
+            android:onClick="goToHome"
             android:padding = "10dp"
             android:src="@drawable/home" />
 
@@ -31,28 +31,17 @@
             android:text="전기 절약 방법 영상 시청하기"
             android:textSize="20sp" />
 
-        <ImageView
+        <TextView
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:onClick="showHeartGuide"
-            android:padding="10dp" />
+            android:visibility="invisible" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/heartProgramWatchedCnt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingHorizontal="20dp"
-        app:layout_constraintBottom_toTopOf="@id/heartVideoListView"
-        app:layout_constraintTop_toBottomOf="@id/heartProgramTopBar">
 
-    </LinearLayout>
 
     <ListView
-        android:id="@+id/heartVideoListView"
+        android:id="@+id/videoListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:backgroundTint="@color/white"
@@ -61,8 +50,7 @@
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/heartProgramWatchedCnt"
-        tools:layout_constraintTop_toBottomOf="@id/heartProgramTopBar" />
+        app:layout_constraintTop_toBottomOf="@id/videoMenuTopBar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

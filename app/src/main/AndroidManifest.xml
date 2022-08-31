@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IotApp">
         <activity
-            android:name=".VideoActivity"
+            android:name="SwitchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ElecVideo.ShowVideo"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
@@ -24,7 +27,7 @@
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".SwitchActivity"
+            android:name=".view.ElecVideo.VideoMenu"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
