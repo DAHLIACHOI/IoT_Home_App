@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -12,8 +13,6 @@ import com.example.iotapp.R;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
-
-import java.util.concurrent.TimeUnit;
 
 public class ShowVideo extends AppCompatActivity {
     YouTubePlayerView youTubePlayerView;
@@ -70,55 +69,61 @@ public class ShowVideo extends AppCompatActivity {
                 youtubePlayer = player;
                 youtubePlayer.cueVideo(videoId);    //썸네일 이미지 로드하는 메소드
 
-                player.setPlaybackEventListener(new YouTubePlayer.PlaybackEventListener() {
-                    @Override
-                    public void onPlaying() {   //play() 또는 사용자 작업으로 재생이 시작될 때
-                    }
-
-                    @Override
-                    public void onPaused() {    //pause() 또는 사용자 작업으로 재생이 일시중지될 때
-                    }
-
-                    @Override
-                    public void onStopped() {   //일시중지 외의 이유로 재생이 중지될 때
-                        System.out.println("영상 정지됨");
-                    }
-
-                    @Override
-                    public void onBuffering(boolean isBuffering) {    //버퍼링이 시작되거나 종료될 때
-                        System.out.println("버퍼링");
-                    }
-
-                    @Override
-                    public void onSeekTo(int i) {   //사용자가 취소하거나 찾기 메소드를 호출하여 재생 위치에서 이동할 때 호출됩니다.
-                        System.out.println("시간 건너뛰기");
-                    }
-                });
-
-//                player.setPlayerStateChangeListener(new YouTubePlayer.PlayerStateChangeListener() {
+//                player.setPlaybackEventListener(new YouTubePlayer.PlaybackEventListener() {
 //                    @Override
-//                    public void onLoading() {
-//                        ad.show();
+//                    public void onPlaying() {   //play() 또는 사용자 작업으로 재생이 시작될 때
 //                    }
 //
 //                    @Override
-//                    public void onLoaded(String s) {
-//                        ad.dismiss();
-//                        int videoTimemillis = youtubePlayer.getDurationMillis();
-//                        long videoTimeSec = TimeUnit.MILLISECONDS.toSeconds(videoTimemillis);
+//                    public void onPaused() {    //pause() 또는 사용자 작업으로 재생이 일시중지될 때
 //                    }
 //
 //                    @Override
-//                    public void onAdStarted() {
-//                        System.out.println("광고 시작");
+//                    public void onStopped() {   //일시중지 외의 이유로 재생이 중지될 때
+//                        System.out.println("영상 정지됨");
 //                    }
 //
+//                    @Override
+//                    public void onBuffering(boolean isBuffering) {    //버퍼링이 시작되거나 종료될 때
+//                        System.out.println("버퍼링");
+//                    }
 //
 //                    @Override
-//                    public void onError(YouTubePlayer.ErrorReason errorReason) {
-//                        System.out.println("onError: " + errorReason);
+//                    public void onSeekTo(int i) {   //사용자가 취소하거나 찾기 메소드를 호출하여 재생 위치에서 이동할 때 호출됩니다.
+//                        System.out.println("시간 건너뛰기");
 //                    }
 //                });
+
+                player.setPlayerStateChangeListener(new YouTubePlayer.PlayerStateChangeListener() {
+                    @Override
+                    public void onLoading() {
+                        ad.show();
+                    }
+
+                    @Override
+                    public void onLoaded(String s) {
+                        ad.dismiss();
+                    }
+
+                    @Override
+                    public void onAdStarted() {
+                        System.out.println("광고 시작");
+                    }
+                    @Override
+                    public void onVideoStarted() {
+
+                    }
+
+                    @Override
+                    public void onVideoEnded() {
+
+                    }
+
+                    @Override
+                    public void onError(YouTubePlayer.ErrorReason errorReason) {
+                        System.out.println("onError: " + errorReason);
+                    }
+                });
             }
 
             @Override
