@@ -3,6 +3,13 @@
     package="com.example.iotapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- Android 11 (API 30+) Youtube API 초기화 -->
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -15,7 +22,7 @@
             android:name=".SwitchActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ElecVideo.ShowVideo"
+            android:name= ".view.ElecVideo.ShowVideo"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

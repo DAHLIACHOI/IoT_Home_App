@@ -89,7 +89,7 @@ public class VideoAdapter extends BaseAdapter {
         videoItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, VideoMenu.class);
+                Intent intent = new Intent(mContext, ShowVideo.class);
                 //영상 정보 넘기기
                 intent.putExtra("API_KEY", API_KEY);
                 intent.putExtra("videoId", videoId);

@@ -14,7 +14,7 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
-public class ShowVideo extends AppCompatActivity {
+public class ShowVideo extends AppCompatActivity{
     YouTubePlayerView youTubePlayerView;
     YouTubePlayer youtubePlayer;
 
@@ -35,7 +35,7 @@ public class ShowVideo extends AppCompatActivity {
         title = intent.getStringExtra("title");
         description = intent.getStringExtra("description");
 
-        initPlayer();   //플레이어 초기화
+        //initPlayer();
 
         TextView titleText = findViewById(R.id.youtubeViewTitleText);
         titleText.setText(title);
@@ -54,21 +54,72 @@ public class ShowVideo extends AppCompatActivity {
         }
     }
 
-    //플레이어 초기화
-    private void initPlayer() {
-        AlertDialog.Builder helpPopup = new AlertDialog.Builder(this);
-        AlertDialog ad = helpPopup.create();
-        ad.setTitle("영상 로딩 중");
-        ad.setMessage("잠시만 기다려주세요.");
-        ad.setCancelable(false);
-
+    public void initPlayer() {
         youTubePlayerView = findViewById(R.id.youtubeView);
+        youTubePlayerView.
+        // YouTubePlayerView 초기화하기
         youTubePlayerView.initialize(API_KEY, new YouTubePlayer.OnInitializedListener() {
             @Override
-            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
+            public void onInitializationSuccess(YouTubePlayer.Provider provider,
+                                                YouTubePlayer player, boolean b) {
                 youtubePlayer = player;
-                youtubePlayer.cueVideo(videoId);    //썸네일 이미지 로드하는 메소드
+                youtubePlayer.setPlayerStateChangeListener(new YouTubePlayer.PlayerStateChangeListener() {
+                    @Override
+                    public void onLoading() {}
 
+                    @Override
+                    public void onLoaded(String s) {
+                        Log.e("PlayerView", "onLoaded 호출됨: " + s);
+                        youtubePlayer.play(); // 동엿앙이 로딩되었으면 재생하기
+                    }
+
+                    @Override
+                    public void onAdStarted() {}
+
+                    @Override
+                    public void onVideoStarted() {}
+
+                    @Override
+                    public void onVideoEnded() {}
+
+                    @Override
+                    public void onError(YouTubePlayer.ErrorReason errorReason) {}
+                });
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider provider,
+                                                YouTubeInitializationResult youTubeInitializationResult) {}
+        });
+    } // initPlayer
+
+    public void playVideo() {
+        if (youtubePlayer != null) {
+            if (youtubePlayer.isPlaying()) {
+                youtubePlayer.pause();
+//                player.cueVideo(videoId); // 여기에 있으면 동영상 재생이 안됨.
+            }
+            youtubePlayer.cueVideo(videoId);
+        }
+    }
+
+
+
+//    //플레이어 초기화
+//    private void initPlayer() {
+//        AlertDialog.Builder helpPopup = new AlertDialog.Builder(this);
+//        AlertDialog ad = helpPopup.create();
+//        ad.setTitle("영상 로딩 중");
+//        ad.setMessage("잠시만 기다려주세요.");
+//        ad.setCancelable(false);
+//
+//        youTubePlayerView = findViewById(R.id.youtubeView);
+//        youTubePlayerView.initialize(API_KEY, new YouTubePlayer.OnInitializedListener() {
+//            @Override
+//            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
+//                youtubePlayer = player;
+//                youtubePlayer.cueVideo(videoId);    //썸네일 이미지 로드하는 메소드
+//
 //                player.setPlaybackEventListener(new YouTubePlayer.PlaybackEventListener() {
 //                    @Override
 //                    public void onPlaying() {   //play() 또는 사용자 작업으로 재생이 시작될 때
@@ -93,45 +144,45 @@ public class ShowVideo extends AppCompatActivity {
 //                        System.out.println("시간 건너뛰기");
 //                    }
 //                });
-
-                player.setPlayerStateChangeListener(new YouTubePlayer.PlayerStateChangeListener() {
-                    @Override
-                    public void onLoading() {
-                        ad.show();
-                    }
-
-                    @Override
-                    public void onLoaded(String s) {
-                        ad.dismiss();
-                    }
-
-                    @Override
-                    public void onAdStarted() {
-                        System.out.println("광고 시작");
-                    }
-                    @Override
-                    public void onVideoStarted() {
-
-                    }
-
-                    @Override
-                    public void onVideoEnded() {
-
-                    }
-
-                    @Override
-                    public void onError(YouTubePlayer.ErrorReason errorReason) {
-                        System.out.println("onError: " + errorReason);
-                    }
-                });
-            }
-
-            @Override
-            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-
-            }
-        });
-    }
+//
+//                player.setPlayerStateChangeListener(new YouTubePlayer.PlayerStateChangeListener() {
+//                    @Override
+//                    public void onLoading() {
+//                        ad.show();
+//                    }
+//
+//                    @Override
+//                    public void onLoaded(String s) {
+//                        ad.dismiss();
+//                    }
+//
+//                    @Override
+//                    public void onAdStarted() {
+//                        System.out.println("광고 시작");
+//                    }
+//                    @Override
+//                    public void onVideoStarted() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onVideoEnded() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(YouTubePlayer.ErrorReason errorReason) {
+//                        System.out.println("onError: " + errorReason);
+//                    }
+//                });
+//            }
+//
+//            @Override
+//            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+//
+//            }
+//        });
+//    }
 
 
     public void goToBack(View view) {   //뒤로가기 버튼 클릭 시
