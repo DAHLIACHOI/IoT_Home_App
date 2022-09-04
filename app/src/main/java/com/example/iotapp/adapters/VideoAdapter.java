@@ -7,12 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.dynamicanimation.animation.SpringAnimation;
+
+import com.bumptech.glide.Glide;
 import com.example.iotapp.R;
 import com.example.iotapp.model.Video;
+import com.example.iotapp.view.ElecVideo.ShowVideo;
 import com.example.iotapp.view.ElecVideo.VideoMenu;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubeThumbnailLoader;
@@ -67,36 +72,16 @@ public class VideoAdapter extends BaseAdapter {
         String description = video.getDescription();
 
         //유튜브 썸네일 불러오기
-        YouTubeThumbnailView thumbnail = view.findViewById(R.id.videoThumbnailView);    //유튜브 썸네일 뷰
-        thumbnail.initialize(API_KEY, new YouTubeThumbnailView.OnInitializedListener() {
-            @Override
-            public void onInitializationSuccess(YouTubeThumbnailView youTubeThumbnailView, YouTubeThumbnailLoader youTubeThumbnailLoader) {
-                youTubeThumbnailLoader.setVideo(videoId);   //썸네일 불러오기
-                youTubeThumbnailLoader.setOnThumbnailLoadedListener(new YouTubeThumbnailLoader.OnThumbnailLoadedListener() {
-                    @Override
-                    public void onThumbnailLoaded(YouTubeThumbnailView youTubeThumbnailView, String s) {
-                        youTubeThumbnailLoader.release();
-                    }
 
-                    @Override
-                    public void onThumbnailError(YouTubeThumbnailView youTubeThumbnailView, YouTubeThumbnailLoader.ErrorReason errorReason) {
-                        youTubeThumbnailLoader.release();
-                    }
-                });
-            }
-
-            @Override
-            public void onInitializationFailure(YouTubeThumbnailView youTubeThumbnailView, YouTubeInitializationResult youTubeInitializationResult) {
-                Toast.makeText(videoMenu, "영상 썸네일을 불러오는데 실패했습니다.", Toast.LENGTH_SHORT).show();
-            }
-        });
+        ImageView thumbnail = view.findViewById(R.id.videoThumbnailView);    //유튜브 썸네일 뷰
+        String url = "https://img.youtube.com/vi/" + videoId + "/" + "maxresdefault.jpg";
+        Glide.with(this.videoMenu).load(url).into(thumbnail);
 
         //영상 정보 출력하기
         TextView videoTitleText = view.findViewById(R.id.videoTitleText);
         videoTitleText.setText(title);   //제목
         TextView videoDescriptionText = view.findViewById(R.id.videoDescriptionText);
         videoDescriptionText.setText(description);   //설명
-
 
 
         //각 아이템 클릭 시 영상 시청 화면으로 이동
@@ -113,8 +98,6 @@ public class VideoAdapter extends BaseAdapter {
                 mContext.startActivity(intent); //영상 시청 화면으로 이동
             }
         });
-
-
         return view;
     }
 }
