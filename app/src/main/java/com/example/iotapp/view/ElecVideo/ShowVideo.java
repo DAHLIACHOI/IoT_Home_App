@@ -11,12 +11,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.iotapp.R;
-import com.example.iotapp.databinding.ActivityShowVideoBinding;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 
 public class ShowVideo extends YouTubeBaseActivity {
     YouTubePlayerView youTubePlayerView;

@@ -6,6 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
+    <LinearLayout
+        android:id="@+id/registerTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:onClick="goToBack"
+            android:text="←"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="회원가입"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:visibility="invisible" />
+
+
+    </LinearLayout>
+
+
+
     <EditText
         android:id="@+id/et_name"
         android:layout_width="0dp"
