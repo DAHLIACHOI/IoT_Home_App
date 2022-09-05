@@ -3,6 +3,7 @@
     package="com.example.iotapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <queries>
         <intent>
             <action android:name="com.google.android.youtube.api.service.START" />
@@ -17,13 +18,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IotApp">
         <activity
-            android:name= ".LoginActivity"
+            android:name=".TempHumActivity"
             android:exported="false" />
         <activity
-            android:name= ".view.ElecVideo.ShowVideo"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name= ".view.ElecVideo.VideoMenu"
+            android:name=".view.ElecVideo.ShowVideo"
+            android:exported="false" />
+        <activity
+            android:name=".view.ElecVideo.VideoMenu"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
