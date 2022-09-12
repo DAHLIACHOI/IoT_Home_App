@@ -27,7 +27,7 @@
             android:name=".view.ElecVideo.ShowVideo"
             android:exported="false" />
         <activity
-            android:name=".view.ElecVideo.VideoMenu"
+            android:name= ".SwitchActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -36,7 +36,7 @@
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".SwitchActivity"
+            android:name=".view.ElecVideo.VideoMenu"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
