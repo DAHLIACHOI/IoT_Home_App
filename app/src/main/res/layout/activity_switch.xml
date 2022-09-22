@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SwitchActivity">
+    tools:context=".Switch">
 
     <LinearLayout
         android:id="@+id/switchTopBar"
@@ -28,7 +28,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="콘센트 제어"
+            android:text="원격 제어"
             android:textSize="20sp" />
 
         <TextView

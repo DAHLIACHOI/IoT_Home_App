@@ -10,18 +10,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.dynamicanimation.animation.SpringAnimation;
 
 import com.bumptech.glide.Glide;
 import com.example.iotapp.R;
 import com.example.iotapp.model.Video;
 import com.example.iotapp.view.ElecVideo.ShowVideo;
 import com.example.iotapp.view.ElecVideo.VideoMenu;
-import com.google.android.youtube.player.YouTubeInitializationResult;
-import com.google.android.youtube.player.YouTubeThumbnailLoader;
-import com.google.android.youtube.player.YouTubeThumbnailView;
 
 import java.util.ArrayList;
 
