@@ -79,10 +79,10 @@
                     android:background="@drawable/table_inside"/>
 
                 <TextView
+                    android:id="@+id/todayDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:text="2023.07.01 ~ 2023.07.31"
                     android:gravity="right"
                     android:background="@drawable/table_inside" />
             </TableRow>
@@ -174,10 +174,10 @@
                     android:background="@drawable/table_inside"/>
 
                 <TextView
+                    android:id="@+id/monthDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:text="2023.07.01 ~ 2023.07.31"
                     android:gravity="right"
                     android:background="@drawable/table_inside" />
             </TableRow>
