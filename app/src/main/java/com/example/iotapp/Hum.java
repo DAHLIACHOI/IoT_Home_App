@@ -20,7 +20,7 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 
-public class Mypage extends AppCompatActivity {
+public class Hum extends AppCompatActivity {
     private Handler mHandler;
     Socket socket;
     private String ip = "192.168.0.3"; // 서버의 IP 주소
@@ -30,7 +30,7 @@ public class Mypage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mypage);
+        setContentView(R.layout.activity_hum);
         mHandler = new Handler();
         et = (EditText) findViewById(R.id.EditText01);
         Button btn = (Button) findViewById(R.id.Button01);

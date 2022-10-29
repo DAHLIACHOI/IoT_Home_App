@@ -20,7 +20,7 @@
 
 
         <activity
-            android:name=".TempHum"
+            android:name=".Temp"
             android:exported="false" />
         <activity
             android:name=".view.ElecVideo.ShowVideo"
@@ -35,7 +35,7 @@
             android:name=".Money"
             android:exported="false" />
         <activity
-            android:name=".Mypage"
+            android:name=".Hum"
             android:exported="false" />
         <activity
             android:name=".Elect"

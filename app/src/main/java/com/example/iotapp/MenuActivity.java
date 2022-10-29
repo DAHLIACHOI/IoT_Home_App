@@ -53,7 +53,7 @@ public class MenuActivity extends AppCompatActivity {
         Temp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent TempHumIntent = new Intent(MenuActivity.this, TempHum.class);
+                Intent TempHumIntent = new Intent(MenuActivity.this, com.example.iotapp.Temp.class);
                 MenuActivity.this.startActivity(TempHumIntent);
 
             }
@@ -70,7 +70,7 @@ public class MenuActivity extends AppCompatActivity {
         MyPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent MyPageIntent = new Intent(MenuActivity.this, Mypage.class);
+                Intent MyPageIntent = new Intent(MenuActivity.this, Hum.class);
                 MenuActivity.this.startActivity(MyPageIntent);
             }
         });

@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,7 +16,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class TempHum extends AppCompatActivity {
+public class Temp extends AppCompatActivity {
 
     EditText send_editText;
     Button socketButton;
@@ -36,7 +34,7 @@ public class TempHum extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_temp_hum);
+        setContentView(R.layout.activity_temp);
         send_textView = findViewById(R.id.tempText);
         read_textView = findViewById(R.id.humText);
         socketButton = findViewById(R.id.socketbutton);
@@ -115,7 +113,7 @@ public class TempHum extends AppCompatActivity {
     public void goToHome(View view) {   //뒤로가기 버튼 클릭 시
         //
         // finish();   //현재 액티비티 없애기
-        Intent intent = new Intent(TempHum.this, MenuActivity.class);
+        Intent intent = new Intent(Temp.this, MenuActivity.class);
         startActivity(intent);
 
     }

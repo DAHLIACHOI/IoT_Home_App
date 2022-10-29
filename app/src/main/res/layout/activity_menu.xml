@@ -138,14 +138,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/temp" />
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/temparature" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="온습도 조회"
+                    android:text="온도 조회"
                     android:textSize="20dp"
                     android:textAlignment="center"
                     android:textStyle="bold" />
@@ -206,14 +206,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/person" />
+                    android:layout_width="100dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/hum" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="마이페이지"
+                    android:text="습도조회"
                     android:textSize="20dp"
                     android:textAlignment="center"
                     android:textStyle="bold" />
