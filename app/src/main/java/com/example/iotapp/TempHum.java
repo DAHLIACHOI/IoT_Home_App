@@ -2,10 +2,12 @@ package com.example.iotapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -39,22 +41,31 @@ public class TempHum extends AppCompatActivity {
         read_textView = findViewById(R.id.humText);
         socketButton = findViewById(R.id.socketbutton);
 
-        Connect connect = new Connect();
-        connect.execute(CONNECT_MSG);
+//        Connect connect = new Connect();
+//        connect.execute(CONNECT_MSG);
 
-//        socketButton.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view) {
-//                Connect connect = new Connect();
-//                connect.execute(CONNECT_MSG);
-//            }
-//        });
+        socketButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Connect connect = new Connect();
+                connect.execute(CONNECT_MSG);
+            }
+        });
     }
+    protected void onPause() {
+        super.onPause();
+    }
+
+    protected void onResume() {
+        super.onResume();
+    }
+
 
     private class Connect extends AsyncTask<String, String, Void>{
         private String output_message;
         private String input_message;
-        private String input_message2;
+        private String temp;
+        private String hum;
 
         @Override
         protected Void doInBackground(String... strings) {
@@ -66,21 +77,20 @@ public class TempHum extends AppCompatActivity {
                 dataOutput.writeUTF(output_message);
             } catch (UnknownHostException e) {
                 String str = e.getMessage().toString();
-                Log.w("discnt", str + " 1");
+                //Log.w("discnt", str + " 1");
             } catch (IOException e) {
                 String str = e.getMessage().toString();
-                Log.w("discnt", str + "2");
+                //Log.w("discnt", str + "2");
             }
 
             while (true){
                 try {
                     byte[] buf = new byte[BUF_SIZE];
                     int read_Byte  = dataInput.read(buf);
-                    int read_Byte2  = dataInput.read(buf);
                     input_message = new String(buf, 0, read_Byte);
-                    input_message2 = new String(buf, 0, read_Byte2);
+                    String[] th = input_message.split("-");
                     if (!input_message.equals(STOP_MSG)){
-                        publishProgress(input_message, input_message2);
+                        publishProgress(th[0], th[1]);
                     }
                     else{
                         break;
@@ -103,6 +113,10 @@ public class TempHum extends AppCompatActivity {
 
 
     public void goToHome(View view) {   //뒤로가기 버튼 클릭 시
-        finish();   //현재 액티비티 없애기
+        //
+        // finish();   //현재 액티비티 없애기
+        Intent intent = new Intent(TempHum.this, MenuActivity.class);
+        startActivity(intent);
+
     }
 }
