@@ -7,13 +7,21 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Elect extends AppCompatActivity {
 
     private ProgressBar progressBar01, progressBar02;
     private TextView progressText01, progressText02;
     int i, j = 0;
+    Integer value;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -35,30 +43,46 @@ public class Elect extends AppCompatActivity {
         progressBar01 = findViewById(R.id.progress_bar01);
         progressText01 = findViewById(R.id.progress_text01);
 
-        progressBar02 = findViewById(R.id.progress_bar02);
-        progressText02 = findViewById(R.id.progress_text02);
+        //progressBar02 = findViewById(R.id.progress_bar02);
+        //progressText02 = findViewById(R.id.progress_text02);
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Power");
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                value = dataSnapshot.getValue(Integer.class);
+                progressText01.setText(value + "w");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                progressText01.setText(("error:") + error.toException());
+            }
+        });
+        /*
         final Handler handler01 = new Handler();
         final Handler handler02 = new Handler();
         handler01.postDelayed(new Runnable() {
 
             @Override
             public void run() {
-                if (i <= 100) {
+                if (i <= 2000) {
                     progressText01.setText(""+i);
                     progressBar01.setProgress(i);
                     i++;
-                    handler01.postDelayed(this, 300);
+                    handler01.postDelayed(this, 1000);
                 } else {
                     handler01.removeCallbacks(this);
                 }
             }
-        }, 300);
+        }, 500);
 
         handler02.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (j <= 20) {
+                if (j <= 10) {
                     progressText02.setText(""+j);
                     progressBar02.setProgress(j);
                     j++;
@@ -68,6 +92,7 @@ public class Elect extends AppCompatActivity {
                 }
             }
         }, 300);
+        */
     }
 
     public void goToHome(View view) {   //뒤로가기 버튼 클릭 시
